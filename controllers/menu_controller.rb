@@ -39,6 +39,10 @@ class MenuController
         read_csv
         main_menu
       when 5
+        system "clear"
+        entry_n_submenu
+        main_menu
+      when 6
         puts "Good-bye!"
        # #8  terminate the program using exit(0) -> 0 signals the program is exiting w/o an error
         exit(0)
@@ -50,7 +54,22 @@ class MenuController
     end
   end
 
-   # #10  stub the rest of the methods called in main_menu
+  def entry_n_submenu
+    print "Entry number to view: "
+    selection = gets.chomp.to_i
+
+    if selection < @address_book.entries.count
+      puts @address_book.entries[selection]
+      puts "Press enter to retunr to the main menu"
+      gets.chomp
+      system "clear"
+    else
+      puts "#{selection} is not a valid input"
+      entry_n_submenu
+    end
+  end
+
+  # #10  stub the rest of the methods called in main_menu
   def view_all_entries
     # #14  iterate through all entries in AddressBook using each
      address_book.entries.each do |entry|
