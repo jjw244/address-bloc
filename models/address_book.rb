@@ -64,4 +64,15 @@ class AddressBook
     # #5  if we divide and conquer to the point where no match is found, we return nil
     return nil
   end
+
+  # Search AddressBook for a specific entry by name using an iterative search method
+  def iterative_search(name)
+    entries.each do |entry|
+      if entry.name == name
+        return entry
+      end
+    end
+
+    return nil
+  end
 end
