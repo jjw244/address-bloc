@@ -66,6 +66,6 @@ class AddressBook
   end
 
   def krampus
-    entries = []
+    @entries = []
   end
 end

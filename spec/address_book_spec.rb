@@ -144,9 +144,8 @@ RSpec.describe AddressBook do
 
   #test Krampus method
   describe "#krampus" do
-    it "deletes all existing entries" do
-      book.import_from_csv("entries_3.csv")
-      krampus
+    it "deletes all existing entries_3" do
+      book.krampus
       expect(book.entries.size).to eq(0)
     end
   end

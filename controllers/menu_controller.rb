@@ -47,7 +47,7 @@ class MenuController
       when 6
         system "clear"
         puts "Krampus destroyed ALL of your entries"
-        address_book.krampus
+        entries = address_book.krampus
         main_menu
       else
         system "clear"
@@ -214,9 +214,5 @@ class MenuController
         puts entry.to_s
         search_submenu(entry)
     end
-  end
-
-  def krampus(entry)
-
   end
 end
