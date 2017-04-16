@@ -49,10 +49,11 @@ RSpec.describe AddressBook do
       # #3 call import_from_csv method on book object and pass entries.csv as an argument;
         #  store size of book.entries to local variable book_size
       book.import_from_csv("entries.csv")
+      book.import_from_csv("entries_2.csv")
       book_size = book.entries.size
 
       # Check the size of the entries in AddressBook
-      expect(book_size).to eq 5
+      expect(book_size).to eq 8
     end
 
     # #4 access the first rentry in the array of entries that our AddressBook stores
@@ -89,6 +90,27 @@ RSpec.describe AddressBook do
       # Check the fifth entry
       entry_five = book.entries[4]
       check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
+    end
+
+    it "imports the 1st entry" do
+      book.import_from_csv("entries_2.csv")
+      # Check the first entry
+      entry_one = book.entries[1]
+      check_entry(entry_one, "Harry", "555-257-2036", "harry@henderson.com")
+    end
+
+    it "imports the 2nd entry" do
+      book.import_from_csv("entries_2.csv")
+      # Check the second entry
+      entry_two = book.entries[2]
+      check_entry(entry_two, "Sherry", "248-555-5415", "sherry@berry.com")
+    end
+
+    it "imports the 3rd entry" do
+      book.import_from_csv("entries_2.csv")
+      # Check the third entry
+      entry_three = book.entries[0]
+      check_entry(entry_three, "Derry", "555-555-5220", "derry@aire.com")
     end
   end
 end
