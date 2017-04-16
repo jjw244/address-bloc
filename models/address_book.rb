@@ -64,4 +64,8 @@ class AddressBook
     # #5  if we divide and conquer to the point where no match is found, we return nil
     return nil
   end
+
+  def krampus
+    entries = []
+  end
 end

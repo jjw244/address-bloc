@@ -16,6 +16,7 @@ class MenuController
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - Exit"
+    puts "6 - Krampus"
     print "Enter your selection: "
 
     # #3 retrieve user input from the command line using gets
@@ -43,6 +44,11 @@ class MenuController
        # #8  terminate the program using exit(0) -> 0 signals the program is exiting w/o an error
         exit(0)
       # #9  use an else to catch invalid user input and prompt the user to retry
+      when 6
+        system "clear"
+        puts "Krampus destroyed ALL of your entries"
+        address_book.krampus
+        main_menu
       else
         system "clear"
         puts "Sorry, that is not a valid input"
@@ -208,5 +214,9 @@ class MenuController
         puts entry.to_s
         search_submenu(entry)
     end
+  end
+
+  def krampus(entry)
+
   end
 end

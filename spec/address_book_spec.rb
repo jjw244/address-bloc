@@ -55,7 +55,7 @@ RSpec.describe AddressBook do
       expect(book_size).to eq 5
     end
 
-    # #4 access the first rentry in the array of entries that our AddressBook stores
+    # #4 access the first entry in the array of entries that our AddressBook stores
     it "imports the 1st entry" do
       book.import_from_csv("entries.csv")
       # Check the first entry
@@ -139,6 +139,15 @@ RSpec.describe AddressBook do
       book.import_from_csv("entries.csv")
       entry = book.binary_search("Billy")
       expect(entry).to be_nil
+    end
+  end
+
+  #test Krampus method
+  describe "#krampus" do
+    it "deletes all existing entries" do
+      book.import_from_csv("entries_3.csv")
+      krampus
+      expect(book.entries.size).to eq(0)
     end
   end
 end
